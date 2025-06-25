@@ -1,5 +1,5 @@
 *{
-    font-family: 'Carlito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     
  } 
 
@@ -25,4 +25,33 @@ img{
 
 .progress-bar{
     background-color: white;
+}
+
+
+ /* Ajuste color columna derecha */
+
+ .textprimary{
+    color: #3498db !important;
+}
+
+/* Efecto para las CARDS */
+ .card{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Lo que se ve cuando paso el mouse por encima */
+.card:hover{
+    transform: translateY(-5px); /* quiero que se desplace -5px */
+    box-shadow: 0 10px 20px rgba(141, 99, 99, 0.1);
+}
+
+@media print{
+    .page-break{
+        page-break-before: always;
+    }
+}
+
+print{
+    font-size: 95%;
 }

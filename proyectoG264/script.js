@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const empresas = ['Bancolombia', 'Celsia', 'GrupoSura', 'ISA', 'Nutresa'];
 
     const promesas = empresas.map(nombre => {
-      const archivo = `data/${nombre}_COP.csv`;
+      const archivo = `https://lauraospina1223.github.io/proyectoG264/DATA/${nombre}_COP.csv`;
       return new Promise(resolve => {
         Papa.parse(archivo, {
           download: true,

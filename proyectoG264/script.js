@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function cargarDatos(nombreEmpresa) {
-    const archivo = `DATA/${nombreEmpresa}_COP.csv`;
+    const archivo = `https://lauraospina1223.github.io/proyectoG264/DATA/${nombreEmpresa}_COP.csv`; /* CARGA DE DATOS */
 
     Papa.parse(archivo, {
       download: true,

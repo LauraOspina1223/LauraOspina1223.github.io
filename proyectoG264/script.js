@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function cargarDatos(nombreEmpresa) {
-    const archivo = `data/${nombreEmpresa}_COP.csv`;
+    const archivo = `DATA/${nombreEmpresa}_COP.csv`;
 
     Papa.parse(archivo, {
       download: true,

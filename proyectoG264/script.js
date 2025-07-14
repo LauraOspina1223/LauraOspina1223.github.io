@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    const archivo = `data/${empresa}_COP.csv`;
+    const archivo = `https://lauraospina1223.github.io/proyectoG264/DATA/${empresa}_COP.csv`;
     Papa.parse(archivo, {
       download: true,
       header: true,

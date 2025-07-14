@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ColZoom Insight</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">
+        <img src="imagenes/bandera.jpg" alt="Bandera de Colombia" class="logo-flag">
+        ColZoom Insight
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#inicio" class="nav-menu-link">Inicio</a></li>
+        <li><a href="#graficos" class="nav-menu-link">Gráficos</a></li>
+        <li><a href="#comparacion" class="nav-menu-link">Comparación</a></li>
+        <li><a href="#resumen" class="nav-menu-link">Resumen</a></li>
+        <li><a href="#distr. volumen" class="nav-menu-link">Distr. volumen</a></li>
+        <li><a href="#distr. portafolio" class="nav-menu-link">Distr. portafolio</a></li>
+        <li><a href="#simulador" class="nav-menu-link">Simulador</a></li>
+      </ul>
+      <a href="suscripcion.html" class="suscribe-link" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+        </svg>
+        <span>Suscríbete</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container">
+        <h1>Analiza y entiende el comportamiento de las principales acciones colombianas</h1>
+        <div class="hero-buttons">
+          <a href="#graficos" class="btn">Explorar</a>
+          <a href="#" class="btn btn-secondary">Aprende</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="graficos" class="charts section-box">
+      <div class="container">
+        <h2>Gráfico de líneas</h2>
+        <p>
+          Este gráfico de líneas muestra la evolución histórica del precio de la acción seleccionada. 
+          Para quienes están empezando, permite visualizar la tendencia general de una acción a lo largo del tiempo, 
+          identificando subidas (rallies) y bajadas (correcciones). 
+          Si ya tienes experiencia, puedes usarlo para analizar patrones, zonas de soporte y resistencia, y evaluar la volatilidad en diferentes periodos. 
+          Entender el comportamiento histórico es clave para tomar decisiones informadas y diseñar estrategias de inversión responsables.
+        </p>
+
+       
+        <select id="empresaSelect">
+          <option value="Bancolombia">Bancolombia</option>
+          <option value="Celsia">Celsia</option>
+          <option value="GrupoSura">GrupoSura</option>
+          <option value="ISA">ISA</option>
+          <option value="Nutresa">Nutresa</option>
+        </select>
+
+        <canvas id="lineChart"></canvas>
+      </div>
+    </section>
+
+    <section id="comparacion" class="charts section-box">
+      <div class="container">
+        <h2>Gráfico de barras</h2>
+        <select id="metricSelect">
+          <option value="ultimo">Último precio</option>
+          <option value="maximo">Precio máximo histórico</option>
+          <option value="promedio">Promedio histórico</option>
+        </select>
+        <canvas id="barChart"></canvas>
+      </div>
+    </section>
+
+    <section id="resumen" class="summary section-box">
+      <div class="container">
+        <h2>Resumen</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Acción</th>
+              <th>Máximo</th>
+              <th>Mínimo</th>
+              <th>Variación %</th>
+              <th>Volatilidad</th>
+            </tr>
+          </thead>
+          <tbody id="tablaResumen">
+            <!-- Se llenará dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="distr. volumen" class="charts section-box">
+      <div class="container flex-container">
+        <div class="chart-container">
+          <h2>Distribución de Volumen Transado</h2>
+          <canvas id="pieChartVolumen"></canvas>
+        </div>
+        <div class="conclusiones-container">
+          <ul>
+            <li>La distribución de volumen transado permite identificar cuáles acciones concentran mayor liquidez en el mercado, facilitando decisiones de entrada y salida.</li>
+            <li>Las empresas con mayor volumen indican mayor participación de inversionistas y mayor facilidad para operar sin afectar el precio.</li>
+            <li>Observar la diferencia de volumen entre empresas ayuda a entender el atractivo y la relevancia que percibe el mercado en cada acción.</li>
+            <li>Una menor participación en volumen puede implicar mayor riesgo de iliquidez, afectando la ejecución de estrategias en el corto plazo.</li>
+            <li>La distribución refleja el nivel de confianza y la frecuencia de transacciones realizadas por el mercado en cada empresa.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="distr. portafolio" class="charts section-box">
+      <div class="container flex-container">
+        <div class="chart-container">
+          <h2>Distribución Simulada del Portafolio</h2>
+          <canvas id="pieChartPortafolio"></canvas>
+        </div>
+        <div class="conclusiones-container">
+          <ul>
+            <li>Esta simulación muestra cómo se distribuiría un portafolio diversificado entre las principales empresas colombianas, ayudando a visualizar la exposición y el peso relativo.</li>
+            <li>Permite entender en qué acciones se concentraría mayor capital y cómo afectaría la volatilidad general del portafolio.</li>
+            <li>Una distribución balanceada puede reducir riesgos y proteger el capital frente a movimientos adversos de una acción específica.</li>
+            <li>El análisis facilita la toma de decisiones estratégicas al momento de ajustar la asignación de activos según objetivos y perfil de riesgo.</li>
+            <li>Observar esta simulación fomenta el análisis crítico y la educación financiera, incentivando decisiones más responsables y fundamentadas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulador" class="section-box">
+      <div class="container">
+        <h2>Simulador de Inversión</h2>
+        <p>
+          Descubre cuánto valdría tu inversión si hubieras comprado acciones en enero de 2015 y las mantuvieras hasta junio de 2025.
+          Selecciona la empresa y escribe el número de acciones que quisieras haber comprado.
+        </p>
+
+        <label for="empresaSimulador">Selecciona la empresa:</label>
+        <select id="empresaSimulador">
+          <option value="Bancolombia">Bancolombia</option>
+          <option value="Celsia">Celsia</option>
+          <option value="GrupoSura">GrupoSura</option>
+          <option value="ISA">ISA</option>
+          <option value="Nutresa">Nutresa</option>
+        </select>
+
+        <label for="accionesInput">Número de acciones:</label>
+        <input type="number" id="accionesInput" placeholder="Ej: 100" min="1" />
+
+        <button id="calcularSimulador" class="btn">Calcular</button>
+        <input type="text" id="resultadoSimulador" placeholder="Valor final (COP)" readonly>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>ColZoom Insight</h3>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#graficos">Gráficos</a></li>
+            <li><a href="#comparacion">Comparación</a></li>
+            <li><a href="#resumen">Resumen</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ColZoom Insight. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
